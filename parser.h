@@ -1,5 +1,7 @@
 #pragma once
 
+#include <map>
+
 #include "statements.h"
 #include "tokenizer.h"
 
@@ -18,4 +20,10 @@ public:
     parser(string input) : tokenizer(input) { }
 
     statement_list* parse();
+
+    //checker
+    map<string, vector<bool>> Used;
+    map<string, vector<string>> Var_to_str;
+
+    void check(statement* Program);
 };
